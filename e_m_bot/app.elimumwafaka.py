@@ -1,30 +1,54 @@
-from flask import Flask, session, request, url_call, redirect, g
-from Flask import render_template
-import os
-
-app.secret_key = os.random(26)
-
+from flask import Flask, session, request
+from flask_sqlalchemy import SQLAlchemy
+import requests
+import openai
 
 
-@app.route('/', methods=['GET', 'POST'])
+app = Flask(__name__)
+
+# Configure the MySQL database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'
+db = SQLAlchemy(app)
+
+# Define your database models and tables using SQLAlchemy
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+# Set your OpenAI API key
+openai.api_key = 'YOUR_API_KEY'
+
+# Define routes and add functionality
+@app.route('/')
+def home():
+    return 'Welcome to the TutorBot!'
+
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         session.pop('user', None)  #drop the session before any ativity.
-        
-    
-
-    
 
 
-#To run this app, you need to first export the environment of Flask
-"""
-in Cmd type
->export FLASK_APP=minimalapp.py
->flask run
-or
->python -m flask run
- * Running on http://127.0.0.1:5000/
-"""
+@app.route('/api/data')
+def get_data():
+    response = requests.get('https://api.example.com/data')
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return 'Error: Failed to fetch data'
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0" port=5000, debug=True)
+@app.route('/api/chat/<prompt>')
+def chat(prompt):
+    response = openai.Completion.create(
+        engine='davinci',
+        prompt=prompt,
+        max_tokens=100,
+        n=1,
+        stop=None
+    )
+    return response.choices[0].text.strip()
+
+# Run the Flask application
+if __name__ == '__main__':
+    app.run()
