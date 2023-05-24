@@ -1,0 +1,496 @@
+{
+  "Form 1": {
+     "Whole Numbers": [
+        "Place value and face value",
+        "Comparison and ordering",
+        "Addition and subtraction",
+        "Multiplication and division"
+     ],
+     "Integers": [
+        "Positive and negative integers",
+        "Addition and subtraction of integers",
+        "Multiplication and division of integers"
+     ],
+     "Fractions": [
+        "Introduction to fractions",
+        "Types of fractions",
+        "Operations with fractions (addition, subtraction, multiplication, division)",
+        "Equivalent fractions"
+     ],
+     "Decimals": [
+        "Introduction to decimals",
+        "Decimal place value",
+        "Addition, subtraction, multiplication, and division of decimals",
+        "Conversion between decimals and fractions"
+     ],
+     "Factors and Multiples": [
+        "Factors and multiples",
+        "Prime and composite numbers",
+        "Common factors and common multiples"
+     ],
+     "Ratio, Proportion, and Rate": [
+        "Introduction to ratio",
+        "Proportion and proportionality",
+        "Rates and unitary method"
+     ],
+     "Percentages": [
+        "Introduction to percentages",
+        "Conversion between percentages, fractions, and decimals",
+        "Percentage increase and decrease"
+     ],
+     "Measurement": [
+        "Length, mass, and capacity",
+        "Conversions between units",
+        "Perimeter and area of basic shapes"
+     ],
+     "Algebraic Expressions": [
+        "Introduction to algebra",
+        "Variables, constants, and coefficients",
+        "Evaluation of expressions",
+        "Simplification of expressions"
+     ],
+     "Angles": [
+        "Introduction to angles",
+        "Types of angles (acute, obtuse, right, straight)",
+        "Properties of angles",
+        "Angle measurement"
+     ],
+     "Quadrilaterals": [
+        "Properties of quadrilaterals (parallelograms, rectangles, squares, rhombuses)",
+        "Angles and sides in quadrilaterals",
+        "Perimeter and area of quadrilaterals"
+     ],
+     "Circles": [
+        "Properties of circles",
+        "Parts of a circle (radius, diameter, circumference)",
+        "Arcs and sectors",
+        "Circumference and area of circles"
+     ],
+     "Three-Dimensional Figures": [
+        "Properties of three-dimensional figures (cubes, cuboids, cylinders, cones, spheres)",
+        "Volume and surface area of three-dimensional figures"
+     ],
+     "Statistics and Probability": [
+        "Data collection and representation",
+        "Measures of central tendency (mean, median, mode)",
+        "Probability concepts (sample space, events, probability calculations)"
+     ],
+     "Simultaneous Linear Equations": [
+        "Solving simultaneous equations graphically",
+        "Solving simultaneous equations algebraically"
+     ],
+     "Indices and Logarithms": [
+        "Rules of indices",
+        "Logarithmic functions and properties"
+     ],
+     "Expansion and Factorization of Algebraic Expressions": [
+        "Expanding and simplifying algebraic expressions",
+        "Factorizing algebraic expressions"
+     ],
+     "Simple and Compound Interest": [
+        "Simple interest calculations",
+        "Compound interest calculations"
+     ],
+     "Consumer Arithmetic": [
+        "Profit and loss",
+        "Discount and mark-up",
+        "Sales tax and value-added tax (VAT)"
+     ],
+     "Data Handling": [
+        "Collection, organization, and interpretation of data",
+        "Representing data using graphs and charts"
+     ]
+  },
+  "Form 2": {
+     "Quadrilaterals": [
+        "Properties of quadrilaterals (parallelograms, rectangles, squares, rhombuses)",
+        "Angles and sides in quadrilaterals",
+        "Perimeter and area of quadrilaterals"
+     ],
+     "Circles": [
+        "Properties of circles",
+        "Parts of a circle (radius, diameter, circumference)",
+        "Arcs and sectors",
+        "Circumference and area of circles"
+     ],
+     "Three-Dimensional Figures": [
+        "Properties of three-dimensional figures (cubes, cuboids, cylinders, cones, spheres)",
+        "Volume and surface area of three-dimensional figures"
+     ],
+     "Statistics and Probability": [
+        "Data collection and representation",
+        "Measures of central tendency (mean, median, mode)",
+        "Probability concepts (sample space, events, probability calculations)"
+     ],
+     "Simultaneous Linear Equations": [
+        "Solving simultaneous equations graphically",
+        "Solving simultaneous equations algebraically"
+     ],
+     "Indices and Logarithms": [
+        "Rules of indices",
+        "Logarithmic functions and properties"
+     ],
+     "Expansion and Factorization of Algebraic Expressions": [
+        "Expanding and simplifying algebraic expressions",
+        "Factorizing algebraic expressions"
+     ],
+     "Simple and Compound Interest": [
+        "Simple interest calculations",
+        "Compound interest calculations"
+     ],
+     "Consumer Arithmetic": [
+        "Profit and loss",
+        "Discount and mark-up",
+        "Sales tax and value-added tax (VAT)"
+     ],
+     "Data Handling": [
+        "Collection, organization, and interpretation of data",
+        "Representing data using graphs and charts"
+     ],
+     "Linear Equations and Inequalities": [
+        "Solving linear equations",
+        "Solving linear inequalities"
+     ],
+     "Functions": [
+        "Introduction to functions",
+        "Domain and range",
+        "Function notation"
+     ],
+     "Mensuration": [
+        "Perimeter and area of composite shapes",
+        "Surface area and volume of composite solids"
+     ],
+     "Trigonometry": [
+        "Introduction to trigonometry",
+        "Trigonometric ratios (sine, cosine, tangent)",
+        "Solving right-angled triangles"
+     ],
+     "Matrices": [
+        "Introduction to matrices",
+        "Matrix operations (addition, subtraction, multiplication)",
+        "Determinants of 2x2 matrices"
+     ],
+     "Sets and Venn Diagrams": [
+        "Set notation",
+        "Operations with sets",
+        "Venn diagrams"
+     ],
+     "Quadratic Equations": [
+        "Solving quadratic equations",
+        "Factorizing quadratic expressions"
+     ],
+     "Probability": [
+        "Probability of combined events",
+        "Conditional probability"
+     ],
+     "Indices, Logarithms, and Exponential Functions": [
+        "Laws of indices",
+        "Logarithmic and exponential equations"
+     ],
+     "Variation": [
+        "Direct and inverse variation",
+        "Joint and combined variation"
+     ]
+  },
+  "Form 3": {
+     "Quadratic Equations": [
+        "Solving quadratic equations",
+        "Factorizing quadratic expressions",
+        "Completing the square",
+        "Quadratic formula"
+     ],
+     "Probability": [
+        "Probability of combined events",
+        "Conditional probability",
+        "Probability distributions"
+     ],
+     "Indices, Logarithms, and Exponential Functions": [
+        "Laws of indices",
+        "Logarithmic and exponential equations",
+        "Graphs of exponential functions"
+     ],
+     "Variation": [
+        "Direct and inverse variation",
+        "Joint and combined variation",
+        "Variation equations"
+     ],
+     "Coordinate Geometry": [
+        "Coordinate system",
+        "Distance formula",
+        "Midpoint formula",
+        "Equations of lines"
+     ],
+     "Plane Geometry": [
+        "Similarity of triangles",
+        "Congruence of triangles",
+        "Properties of polygons",
+        "Circumcircle and incircle"
+     ],
+     "Trigonometry": [
+        "Trigonometric ratios (sine, cosine, tangent)",
+        "Solving triangles using trigonometry",
+        "Trigonometric identities",
+        "Graphs of trigonometric functions"
+     ],
+     "Statistics": [
+        "Measures of dispersion (range, variance, standard deviation)",
+        "Sampling techniques",
+        "Hypothesis testing"
+     ],
+     "Matrices and Transformations": [
+        "Matrix operations",
+        "Transformations (translations, reflections, rotations)",
+        "Composite transformations"
+     ],
+     "Arithmetic and Geometric Progressions": [
+        "Sum of arithmetic series",
+        "Sum of geometric series",
+        "Applications of progressions"
+     ],
+     "Calculus": [
+        "Differentiation",
+        "Applications of differentiation",
+        "Integration",
+        "Applications of integration"
+     ],
+     "Financial Mathematics": [
+        "Compound interest",
+        "Amortization",
+        "Annuities",
+        "Sinking funds"
+     ],
+     "Set Theory": [
+        "Set operations",
+        "Venn diagrams",
+        "Set identities",
+        "Applications of set theory"
+     ],
+     "Probability Distributions": [
+        "Discrete probability distributions",
+        "Continuous probability distributions",
+        "Expected value and variance"
+     ],
+     "Geometry of Circles": [
+        "Arcs and chords",
+        "Tangents and secants",
+        "Circle theorems"
+     ],
+     "Data Analysis and Presentation": [
+        "Data collection methods",
+        "Data presentation (frequency distribution, histograms, scatter plots)",
+        "Data analysis techniques"
+     ],
+     "Indices and Surds": [
+        "Laws of indices",
+        "Simplifying surds",
+        "Operations with surds"
+     ],
+     "Functions and Graphs": [
+        "Types of functions",
+        "Graphs of functions",
+        "Inverse functions"
+     ]
+  },
+  "Form 4": {
+     "Trigonometry": [
+        "Trigonometric ratios (sine, cosine, tangent)",
+        "Solving triangles using trigonometry",
+        "Trigonometric identities",
+        "Graphs of trigonometric functions",
+        "Inverse trigonometric functions"
+     ],
+     "Calculus": [
+        "Differentiation",
+        "Applications of differentiation",
+        "Integration",
+        "Applications of integration",
+        "Differential equations"
+     ],
+     "Financial Mathematics": [
+        "Compound interest",
+        "Amortization",
+        "Annuities",
+        "Sinking funds",
+        "Present value and future value"
+     ],
+     "Set Theory": [
+        "Set operations",
+        "Venn diagrams",
+        "Set identities",
+        "Applications of set theory",
+        "Cardinality of sets"
+     ],
+     "Probability Distributions": [
+        "Discrete probability distributions",
+        "Continuous probability distributions",
+        "Expected value and variance",
+        "Normal distribution",
+        "Binomial distribution"
+     ],
+     "Geometry of Circles": [
+        "Arcs and chords",
+        "Tangents and secants",
+        "Circle theorems",
+        "Construction of tangents",
+        "Cyclic quadrilaterals"
+     ],
+     "Data Analysis and Presentation": [
+        "Data collection methods",
+        "Data presentation (frequency distribution, histograms, scatter plots)",
+        "Data analysis techniques",
+        "Measures of dispersion",
+        "Correlation and regression"
+     ],
+     "Indices and Surds": [
+        "Laws of indices",
+        "Simplifying surds",
+        "Operations with surds",
+        "Rationalizing surds"
+     ],
+     "Functions and Graphs": [
+        "Types of functions",
+        "Graphs of functions",
+        "Inverse functions",
+        "Transformations of functions",
+        "Composite functions"
+     ],
+     "Vectors": [
+        "Introduction to vectors",
+        "Vector operations (addition, subtraction, scalar multiplication)",
+        "Magnitude and direction of vectors",
+        "Applications of vectors",
+        "Dot product and cross product"
+     ],
+     "Probability and Statistics": [
+        "Sampling techniques",
+        "Hypothesis testing",
+        "Confidence intervals",
+        "Regression analysis",
+        "Designing experiments",
+        [
+           "Probability distributions",
+           "Central limit theorem",
+           "Estimation and confidence intervals",
+           "Hypothesis testing",
+           "Chi-square test"
+        ]
+     ],
+     "Geometry of Triangles": [
+        "Similarity of triangles",
+        "Congruence of triangles",
+        "Triangle properties (medians, altitudes, angle bisectors)",
+        "Area of triangles"
+     ],
+     "Linear Programming": [
+        "Graphical method",
+        "Optimization problems",
+        "Feasible region",
+        "Solving linear programming problems",
+        [
+           "Graphical method",
+           "Simplex method",
+           "Duality and sensitivity analysis",
+           "Optimization problems"
+        ]
+     ],
+     "Matrices and Transformations": [
+        "Matrix operations",
+        "Transformations (translations, reflections, rotations, enlargements)",
+        "Matrix equations",
+        "Inverse of a matrix"
+     ],
+     "Sequences and Series": [
+        "Arithmetic sequences and series",
+        "Geometric sequences and series",
+        "Applications of sequences and series",
+        "Infinite series"
+     ],
+     "Differentiation and Integration": [
+        "Differentiation rules",
+        "Integration rules",
+        "Applications of differentiation and integration",
+        "Area under a curve"
+     ],
+     "Index Numbers": [
+        "Price index",
+        "Quantity index",
+        "Weighted index",
+        "Composite index"
+     ],
+     "Geometry of Solids": [
+        "Properties of solids (cubes, cuboids, cylinders, cones, spheres)",
+        "Surface area and volume of solids",
+        "Composite solids",
+        "Surface area and volume of frustums"
+     ],
+     "Further Calculus": [
+        "Differentiation of trigonometric functions",
+        "Integration by substitution",
+        "Applications of differentiation and integration",
+        "Improper integrals"
+     ],
+     "Coordinate Geometry": [
+        "Equations of lines and curves",
+        "Properties of conic sections",
+        "Parametric equations",
+        "Polar coordinates"
+     ],
+     "Linear Algebra": [
+        "Systems of linear equations",
+        "Matrix operations and properties",
+        "Determinants",
+        "Eigenvalues and eigenvectors",
+        "Vector spaces"
+     ],
+     "Trigonometric Equations": [
+        "Solving trigonometric equations",
+        "General solutions",
+        "Trigonometric identities and equations"
+     ],
+     "Financial Applications": [
+        "Present value of an annuity",
+        "Future value of an annuity",
+        "Loan amortization",
+        "Investment appraisal",
+        "Cash flow analysis"
+     ],
+     "Statistics and Probability": [
+        "Sampling techniques",
+        "Data presentation and analysis",
+        "Hypothesis testing",
+        "Regression analysis",
+        "Designing experiments"
+     ],
+     "Differential Equations": [
+        "First-order differential equations",
+        "Separable differential equations",
+        "Linear differential equations",
+        "Applications of differential equations"
+     ],
+     "Indices and Logarithms": [
+        "Laws of indices",
+        "Logarithmic and exponential equations",
+        "Graphs of exponential and logarithmic functions"
+     ],
+     "Complex Numbers": [
+        "Introduction to complex numbers",
+        "Operations with complex numbers",
+        "Polar form of complex numbers",
+        "De Moivre's theorem"
+     ],
+     "Statistics": [
+        "Measures of central tendency",
+        "Measures of dispersion",
+        "Probability distributions",
+        "Hypothesis testing",
+        "Correlation and regression"
+     ],
+     "Business Mathematics": [
+        "Profit and loss",
+        "Markup and discount",
+        "Interest and depreciation",
+        "Ratio and proportion",
+        "Break-even analysis"
+     ]
+  }
+}
