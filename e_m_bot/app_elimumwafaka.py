@@ -3,6 +3,7 @@ import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 import openai
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
@@ -26,6 +27,10 @@ class Lesson:
 
 # Set your OpenAI API key
 openai.api_key = 'YOUR_API_KEY'
+
+# Read JSON data
+with open('maths.json', 'r') as json_file:
+    topics = json.load(json_file)
 
 # Define routes and add functionality
 @app.route('/')
@@ -69,7 +74,7 @@ def dashboard():
         cursor.execute("SELECT * FROM lessons")
         lessons = cursor.fetchall()
 
-        return render_template('dashboard.html', user=user, lessons=lessons)
+        return render_template('dashboard.html', user=user, lessons=lessons, topics=topics)
     else:
         return redirect('/login')
 
