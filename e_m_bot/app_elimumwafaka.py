@@ -1,32 +1,28 @@
 from flask import Flask, session, request, render_template, redirect, flash
-from flask_sqlalchemy import SQLAlchemy
+import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 import openai
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
 
 # Configure the MySQL database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'
-db = SQLAlchemy(app)
+db = mysql.connector.connect(
+    host='localhost',
+    user='username',
+    password='password',
+    database='db_name'
+)
 
-# Define your database models and tables using SQLAlchemy
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(100))
-    lesson_progress = db.Column(db.Integer, default=0)
-
+# Define your database models and tables using MySQL connector
+class User:
     def __init__(self, username, password):
         self.username = username
         self.password = generate_password_hash(password)
 
-class Lesson(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
-    description = db.Column(db.Text)
+class Lesson:
+    pass
 
 # Set your OpenAI API key
 openai.api_key = 'YOUR_API_KEY'
@@ -42,9 +38,12 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        user = User.query.filter_by(username=username).first()
+        cursor = db.cursor()
+        query = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(query, (username,))
+        user = cursor.fetchone()
 
-        if user and check_password_hash(user.password, password):
+        if user and check_password_hash(user[2], password):
             session['user'] = username
             return redirect('/dashboard')
         else:
@@ -60,8 +59,16 @@ def logout():
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
-        user = User.query.filter_by(username=session['user']).first()
-        lessons = Lesson.query.all()
+        username = session['user']
+        cursor = db.cursor()
+        query = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(query, (username,))
+        user = cursor.fetchone()
+
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM lessons")
+        lessons = cursor.fetchall()
+
         return render_template('dashboard.html', user=user, lessons=lessons)
     else:
         return redirect('/login')
@@ -72,12 +79,19 @@ def register():
         username = request.form['username']
         password = request.form['password']
 
-        if User.query.filter_by(username=username).first():
+        cursor = db.cursor()
+        query = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(query, (username,))
+        user = cursor.fetchone()
+
+        if user:
             flash('Username already taken', 'error')
         else:
-            new_user = User(username, password)
-            db.session.add(new_user)
-            db.session.commit()
+            hashed_password = generate_password_hash(password)
+            query = "INSERT INTO users (username, password) VALUES (%s, %s)"
+            cursor.execute(query, (username, hashed_password))
+            db.commit()
+
             flash('Registration successful! You can now log in.', 'success')
             return redirect('/login')
 
@@ -85,17 +99,27 @@ def register():
 
 @app.route('/lessons/<lesson_id>')
 def lesson_detail(lesson_id):
-    lesson = Lesson.query.get(lesson_id)
+    cursor = db.cursor()
+    query = "SELECT * FROM lessons WHERE id = %s"
+    cursor.execute(query, (lesson_id,))
+    lesson = cursor.fetchone()
+
     return render_template('lesson_detail.html', lesson=lesson)
 
 @app.route('/lessons/<lesson_id>/complete', methods=['POST'])
 def complete_lesson(lesson_id):
     if 'user' in session:
-        user = User.query.filter_by(username=session['user']).first()
-        lesson = Lesson.query.get(lesson_id)
-        if user and lesson:
-            user.lesson_progress = lesson.id
-            db.session.commit()
+        username = session['user']
+        cursor = db.cursor()
+        query = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(query, (username,))
+        user = cursor.fetchone()
+
+        if user:
+            query = "UPDATE users SET lesson_progress = %s WHERE username = %s"
+            cursor.execute(query, (lesson_id, username))
+            db.commit()
+
             flash('Lesson completed!', 'success')
         else:
             flash('Invalid lesson or user', 'error')
