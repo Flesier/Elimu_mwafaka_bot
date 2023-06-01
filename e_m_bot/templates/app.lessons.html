@@ -54,13 +54,13 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link " href="">
               <span data-feather="home"></span>
               Dashboard <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#playground">
+            <a class="nav-link active" href="app.lessons.html">
               <span data-feather="file"></span>
               My Classes
             </a>
@@ -82,7 +82,7 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">My progress and Lessons</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
             <button type="button" class="btn btn-sm btn-secondary">Date</button>
@@ -98,76 +98,14 @@
       
 
       <section class="my-4 w-100" id="myChart" width="900" height="380">
-        {% for row in data %}
-        {% set class = row[14] %}
-        <div class="card">
-          <div class="card-header">
-            <p class="">Username</p>
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">{{ row[1] }} {{ row[3] }}   :  Form {{ row[14] }}</h2>
-          </div>
-         
-        </div>
-          {% endfor %}
-
-          <br>
-        <div class="row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Your Curriculum:</h5>
-                  <ul class="list-group">
+        
+                    <!--Gets the value from the flask app.-->
                     
-                    {% for key, value in topics.items() %}
                     
-                    {% set maintopic= value %}
-                    {% if key == form %} <!--Gets the value from the flask app.-->
-                    {% set calculus_subtopics = value %}
-                    {% for key2, value2 in calculus_subtopics.items() %}
-                    {% set subtopics = value2 %}
                     
                     
                   
-                    <li class="list-group-item " aria-current="true">
-                        <details >
-                            <summary style="font-weight: bold;">   {{ key2 }} </summary>
-                            {% for subtopic in subtopics %}
-                           
-                            <ul>
-                                     <li>{{ subtopic }}</li>
-                            </ul>
-                            
-                            {% endfor %}
-                            <br>
-                            <button class="btn btn-primary mx-auto col-6" id="{{ i }}" >Start</button>
-                        </details>
-                        
-                    </li>
-                    <br>
-                    {% endfor %}
-                    {% endif %}
-                    {% endfor %}
-                  
-                   
-                   
-                  <br>
-                  <a href="#" class="btn btn-primary">Continue</a>
-                  <p>{{ calculus_subtopics }}</p>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Completed :</h5>
-                  <p class="card-text">This are the completed lessons:</p>
-                  <a href="#" class="btn btn-primary">Review Them</a>
-                </div>
-              </div>
-            </div>
-        </div>
+                    
       </section>
 
       <section class="my-4 w-100" id="playground" width="900" height="380">
@@ -186,6 +124,44 @@
         </form>
 
       </section>
+      <main>
+        
+      
+        <div class="album py-3 bg-dark">
+          <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for key, value in topics.items() %}
+                {% set maintopic= value %}
+                {% if key == form %} <!--Gets the value from the flask app.-->
+                {% set calculus_subtopics = value %}
+                {% for key2, value2 in calculus_subtopics.items() %}
+                {% set subtopics = value2 %}
+                        
+                
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <div class="card-body">
+                        <h6> {{ key2 }}</h6>
+                        <br>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <button type="button" class="btn  btn-primary my-auto col-5">View.</button>
+                          <button type="button" class="btn btn-success my-auto col-5">Proceed.</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <br>
+              {% endfor %}
+              {% endif %}
+              {% endfor %}
+              
+            </div>
+          </div>
+        </div>
+        
+      
+      </main>
 
       
         

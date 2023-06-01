@@ -43,7 +43,7 @@ def dashboard(data=None):
 
     # Retrieve user-specific information from the database
     
-    user_adm = 'john.sim@example.com'
+    user_adm = 'jane.wambu@example.com'
     query = "SELECT * FROM students WHERE adm='{}'".format(user_adm)
    
     mycursor.execute(query)
@@ -58,23 +58,88 @@ def dashboard(data=None):
         (id, username, first_name,last_name,adm,parent,parent_id,parent_phone,paid,last_point,password,current_school,location,progress,classe,*others) = y
         #Get the email in the tuple
         adm = adm
+        classe = classe
         print("Code runner : {}".format(adm))
+        print("Code runner : {}".format(classe))
+        form = ''
+        if classe == "1":
+            form = "Form 1"
+        elif classe == "2":
+            form = "Form 2"
+        elif classe == "3":
+            form = "Form 3"
+        elif classe == "4":
+            form = "Form 4"
+        else:
+            form = "Form 1"
 
     with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
         topics = json.load(json_file)
         # Loop over the data
         for key, value in topics.items():
             print("{}: {}".format(key, value))
-            if key == 'Form 1':
+            if key == 'Form 1':#testing the loop
                 print("This are the topics: {}".format(value))
                 Tnames = value
 
     
-    return render_template('app.dashboard.html', data=data, topics=topics)
+    return render_template('app.dashboard.html', data=data, topics=topics, form=form)
     print("this is the data".format(data))
        
             
+#Route for the user lessons section
+@app.route('/lessons/', methods=['GET', 'POST'])
+@app.route('/lessons/<topics>', methods=['GET', 'POST'])
+def lessons(topics=None):
+    #get details of the user by executing the SQL query
+    user_adm = 'jane.wambu@example.com'
+    query = "SELECT * FROM students WHERE adm='{}'".format(user_adm)
+   
+    mycursor.execute(query)
+    data = mycursor.fetchall()
+    print(data)
+    
+    #loop through students query from database
+    for y in data:
+        print("Hello niggah{}".format(y))
+        #loop in the tuple and set the formats.
+        (id, username, first_name,last_name,adm,parent,parent_id,parent_phone,paid,last_point,password,current_school,location,progress,classe,*others) = y
+        #Get the email in the tuple
+        adm = adm
+        classe = classe
+        print("Code runner : {}".format(adm))
+        print("Code runner : {}".format(classe))
+        form = ''
+        if classe == "1":
+            form = "Form 1"
+        elif classe == "2":
+            form = "Form 2"
+        elif classe == "3":
+            form = "Form 3"
+        elif classe == "4":
+            form = "Form 4"
+        else:
+            form = "Form 1"
 
+    with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
+        topics = json.load(json_file)
+        # Loop over the data
+        for key, value in topics.items():
+            #print("{}: {}".format(key, value))
+            if key == 'Form 1':#testing the loop
+               # print("This are the topics: {}".format(value))
+                Tnames = value
+
+    #progress
+
+
+
+
+
+    #Render the template
+    return render_template('app.lessons.html', topics=topics, form=form)
+    print("this is the data".format(topics))
+    
     
 
 
