@@ -15,9 +15,15 @@ import wikipedia as wiki
 from googlesearch import search
 import warnings
 import pickle
+import os
+import requests
+from time import ctime
 
 warnings.filterwarnings('ignore')
 nltk.download("punkt", quiet=True)
+
+# Set your OpenAI API key
+api_key = "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"
 
 with open('intents.json') as file:
     data = json.load(file)
@@ -77,7 +83,7 @@ def getText(message):
             article.parse()
             article.nlp()
             sentence_list = article.text
-            token_list1 = nltk.sent_tokenize(sentence_list)
+            token_list1.extend(nltk.sent_tokenize(sentence_list))
         except Exception:
             i = i + 1
         finally:
@@ -88,13 +94,39 @@ def getText(message):
         sentence_list = wiki.summary(message)
         sentence = nltk.sent_tokenize(sentence_list)
         if sentence is not None:
-            token_list2 = sentence
+            token_list2.extend(sentence)
     except wiki.PageError:
         print("Error occurred")
     finally:
         return token_list1 + token_list2
 
+def generate_openai_response(message):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    data = {
+        "prompt": message,
+        "max_tokens": 50
+    }
+
+    response = requests.post(
+        "https://api.openai.com/v1/engines/davinci-codex/completions",
+        headers=headers,
+        json=data
+    )
+
+    response_data = response.json()
+    if "choices" in response_data:
+        choices = response_data["choices"]
+        if len(choices) > 0 and "text" in choices[0]:
+            return choices[0]["text"]
+
+    return ""
+
 def getMessage(message):
+    close_chat = ['bye', 'goodbye', 'exit', 'quit']
     if message.lower() in close_chat:
         return "See you later, bye !!"
     else:
@@ -105,6 +137,12 @@ def getMessage(message):
         else:
             sentence = getText(message)
             reply = bot_reply(message=message, sentence_list=sentence)
+
+            # Use OpenAI for generating response
+            openai_response = generate_openai_response(message)
+            if openai_response:
+                reply += " " + openai_response
+
             return reply
 
 model = keras.models.load_model('chat_model')
@@ -126,3 +164,6 @@ while True:
             print(ctime())
         elif i['tag'] == tag:
             print(random.choice(i['responses']))
+            break
+    else:
+        print(generate_openai_response(user_input))

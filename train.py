@@ -7,6 +7,7 @@ from tensorflow.keras.layers import Dense, Embedding, GlobalAveragePooling1D
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
+import openai
 
 with open('intents.json') as file:
     data = json.load(file)
@@ -57,15 +58,46 @@ model.summary()
 epochs = 500
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
-# to save the trained model
+# Save the trained model
 model.save("chat_model")
 
 import pickle
 
-# to save the fitted tokenizer
+# Save the fitted tokenizer
 with open('tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-# to save the fitted label encoder
-with open('label_encoder.pickle', 'wb') as ecn_file:
-    pickle.dump(lbl_encoder, ecn_file, protocol=pickle.HIGHEST_PROTOCOL)
+# Save the fitted label encoder
+with open('label_encoder.pickle', 'wb') as enc_file:
+    pickle.dump(lbl_encoder, enc_file, protocol=pickle.HIGHEST_PROTOCOL)
+
+# Set up your OpenAI API key
+openai.api_key = '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'
+
+def chat_with_openai(message):
+    response = openai.Completion.create(
+        engine='text-davinci-003',
+        prompt=message,
+        max_tokens=50,
+        n=1,
+        stop=None,
+        temperature=0.7
+    )
+    return response.choices[0].text.strip()
+
+while True:
+    user_input = input("User: ")
+    if user_input.lower() == "quit":
+        break
+
+    if user_input.lower() in close_chat:
+        print("See you later, bye !!")
+        break
+    else:
+        if greeting_response(user_input) is not None:
+            print(greeting_response(user_input))
+        elif any(map(str.isdigit, user_input)):
+            print(eval(user_input))
+        else:
+            response = chat_with_openai(user_input)
+            print(response)

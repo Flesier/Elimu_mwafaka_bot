@@ -7,7 +7,7 @@ import json
 import bot
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here'
+app.config['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'] = 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
 
 # Configure the MySQL database
 db = mysql.connector.connect(
@@ -27,7 +27,7 @@ class Lesson:
     pass
 
 # Set your OpenAI API key
-openai.api_key = 'YOUR_API_KEY'
+openai.api_key = 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
 
 # Read JSON data
 with open('maths.json', 'r') as json_file:
@@ -79,13 +79,12 @@ def dashboard():
     else:
         return redirect('/login')
 
-    @app.route("/tutorbot", methods=["POST"])
+@app.route("/tutorbot", methods=["POST"])
 def response():
-    print(dict(request.json))
-    query = dict(request.json)['query']
-    result = bot.chat(query)
-
-    return jsonify({"response": result})
+    data = dict(request.json)
+    query = data['query']
+    result, prompt_id = chat(query)  # Get the response and prompt ID
+    return jsonify({"response": result, "prompt_id": prompt_id})  # Return the response and prompt ID
    
 @app.route('/register', methods=['GET', 'POST'])
 def register():
