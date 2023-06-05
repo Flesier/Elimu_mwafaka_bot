@@ -1,4 +1,3 @@
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -201,4 +200,3 @@
     <script src="landing.js"></script>
   </body>
 </html>
-
