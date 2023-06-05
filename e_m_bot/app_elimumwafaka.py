@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 import openai
 import json
+import bot
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
@@ -78,6 +79,14 @@ def dashboard():
     else:
         return redirect('/login')
 
+    @app.route("/tutorbot", methods=["POST"])
+def response():
+    print(dict(request.json))
+    query = dict(request.json)['query']
+    result = bot.chat(query)
+
+    return jsonify({"response": result})
+   
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
