@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <!-- Main Style -->
-    <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="index.css" />
     <title>Elimu Mwafaka Bot</title>
   </head>
   <body>
@@ -197,6 +197,6 @@
         </div>
       </div>
     </footer>
-    <script src="landing.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
