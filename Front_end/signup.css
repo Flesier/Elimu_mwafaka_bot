@@ -99,7 +99,7 @@ form p a {
     border: 0;
     outline: 0;
     cursor: pointer;
-    transition:  background 1s;
+    transition: background 1s;
 }
 
 .input-group {
