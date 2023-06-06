@@ -140,7 +140,7 @@
               <li class="footer__link"><a href="#banner">overview</a></li>
               <li class="footer__link"><a href="#Home">Home</a></li>
               <li class="footer__link"><a href="#subjects">Subjects</a></li>
-              <li class="footer__link"><a href="#Track">Track</a></li>
+              <li class="footer__link"><a href="#About">Track</a></li>
             </ul>
             <!-- socials -->
             <div class="footer__socials">
