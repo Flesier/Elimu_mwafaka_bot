@@ -244,6 +244,7 @@ def register():
     return render_template('register.html')
 
 @app.route('/lessons/<lesson_id>')
+@app.route('/lessons', methods=['GET', 'POST'])
 def lesson_detail(lesson_id):
     cursor = db.cursor()
     query = "SELECT * FROM lessons WHERE id = %s"
