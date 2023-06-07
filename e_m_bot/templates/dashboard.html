@@ -54,13 +54,13 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="{{ url_for('dashboard') }}">
               <span data-feather="home"></span>
               Dashboard <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#playground">
+            <a class="nav-link" href="{{ url_for('lessons') }}">
               <span data-feather="file"></span>
               My Classes
             </a>
@@ -94,6 +94,7 @@
           </button>
         </div>
       </div>
+      
 
       
 
@@ -112,6 +113,34 @@
           {% endfor %}
 
           <br>
+      </section>
+      
+      <section>
+        <div class="row" data-masonry='{"percentPosition": true }'>
+          <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card">
+              <img src="https://picsum.photos/200/300" class="card-img-top" alt="..." width="100%" height="200">
+      
+              <div class="card-body">
+                <h5 class="card-title">Mathematics</h5>
+                <p class="card-text"> It develops critical thinking skills and is essential for science, technology, engineering, and further education. Assessed in national exams like KCSE, it equips students with quantitative reasoning abilities for various fields.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      
+              <div class="card-body">
+                <h5 class="card-title">Card title that wraps to a new line</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+      </section>
+
+
+      <section>
         <div class="row">
             <div class="col-sm-6 mb-3 mb-sm-0">
               <div class="card">
@@ -140,7 +169,8 @@
                             
                             {% endfor %}
                             <br>
-                            <button class="btn btn-primary mx-auto col-6" id="{{ i }}" >Start</button>
+                            <a href="{{ url_for('lessons', topics=topics) }}" class="btn btn-primary mx-auto col-6">Start</a>
+                            <!--<button class="btn btn-primary mx-auto col-6" id="{{ i }}"  onclick="redirectWithParams()">Start</button>-->
                         </details>
                         
                     </li>
@@ -170,22 +200,7 @@
         </div>
       </section>
 
-      <section class="my-4 w-100" id="playground" width="900" height="380">
-        <h2>Tutor Bot</h2>
-        <div class="table-responsive">
-        </div>
-        <form class="form-horizontal jumbotron" role="form">
-            
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Current Lesson</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-              </div>
-              <div>
-                <button class="btn btn-primary" type="submit">Submit </button>
-              </div>
-        </form>
-
-      </section>
+      
 
       
         
@@ -201,6 +216,9 @@
 
         <!-- Custom Javascript for this file -->
         <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+        <!-- Redirect Javascript -->
+        <script src="{{ url_for('static', filename='redirect.js') }}"></script>
 
       </body>
          

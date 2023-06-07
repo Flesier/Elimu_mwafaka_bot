@@ -47,6 +47,20 @@ def create_connection():
     return connection
 
 
+# Define your database models and tables using MySQL connector
+#class User:
+ #   def __init__(self, username, password):
+  #      self.username = username
+   #     self.password = generate_password_hash(password)
+
+#class Lesson:
+ #   pass
+
+# Set your OpenAI API key
+#openai.api_key = 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
+
+# Read JSON data
+
 
 # Define routes and add functionality
 @app.route('/')
@@ -57,7 +71,8 @@ def home():
 def authenticate_user(username, password):
     # Perform SQL query to check username and password in the database
     # Replace the placeholders with your database credentials and query logic
-    # Here's query using  SQL:
+    # You can use a library like SQLAlchemy to interact with the database
+    # Here's a sample query using raw SQL:
     query = "SELECT username,password FROM students WHERE username = %s AND password = %s"
     mycursor.execute(query, (username, password))
     result = mycursor.fetchall()
@@ -67,7 +82,8 @@ def authenticate_user(username, password):
         print("Password:", row[1])
     name = row[0]
     passw = row[1]
-    
+    # Replace this with your own logic to check if the user is authenticated
+    # and the password matches the one stored in the database
    
     if username == name and password == passw:
         return True
@@ -150,9 +166,33 @@ def dashboard(data=None):
     else:
         error="No session Set."
         return redirect('/login')
+    # Retrieve user-specific information from the database
+   # if 'user' in session:
+        #username = session['user']
+        #cursor = db.cursor()
+        #query = "SELECT * FROM students WHERE username = %s"
+        #cursor.execute(query, (username,))
+        #user = cursor.fetchone()
 
+        #cursor = db.cursor()
+        #cursor.execute("SELECT * FROM lessons")
+       # lessons = cursor.fetchall()
+
+        username = "john"
+        
+
+        
+
+        
         print("this is the data".format(data))
+    #else:
+        ################################
+        #Remember to change this code
+        #return redirect('/login')
+       #return render_template('dashboard.html', user=user, lessons=lessons, topics=topics)
+
     
+
     #Render the template
     return render_template('app.lessons.html', topics=topics, form=form)
     print("this is the data".format(topics))
@@ -198,7 +238,18 @@ def register():
 #@app.route('/lessons/<lesson_id>')
 @app.route('/lessons', methods=['GET', 'POST'])
 def lessons(lesson_id=None):
-    
+    #cursor = tutordb.cursor()
+    #query = "SELECT * FROM lessons WHERE id = %s"
+    #cursor.execute(query, (lesson_id,))
+    #lesson = cursor.fetchone()
+
+    #param1 = request.args.get('param1')
+    #param2 = request.args.get('param2')
+
+    # Use the parameters to retrieve the necessary information
+    # ...
+
+   # return f"Param1: {param1}, Param2: {param2}"
     with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
         topics = json.load(json_file)
     
