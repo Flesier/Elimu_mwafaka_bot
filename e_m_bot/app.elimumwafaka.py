@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flask import Flask, session, request, render_template, redirect, g, flash, url_for
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,19 +5,17 @@ import requests
 import openai
 import json
 #import bot
-=======
 from flask import Flask, session, request,redirect, g, url_for
 from flask import render_template
->>>>>>> 554f7700f3fbd1d9b6cf37f95942ee53bad2c5e8
+
 import os
 import json
 import mysql.connector
 
-<<<<<<< HEAD
-=======
+
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
->>>>>>> 554f7700f3fbd1d9b6cf37f95942ee53bad2c5e8
+
 
 # MySQL Connector configuration
 tutordb = mysql.connector.connect(
@@ -51,17 +48,13 @@ mycursor = tutordb.cursor()
 def index():
     return render_template('index.html')
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 554f7700f3fbd1d9b6cf37f95942ee53bad2c5e8
 # Function to establish a MySQL connection
 def create_connection():
     connection = mysql.connector.connect(**db_config)
     return connection
 
 
-<<<<<<< HEAD
 # Define your database models and tables using MySQL connector
 #class User:
  #   def __init__(self, username, password):
@@ -126,116 +119,12 @@ def login():
 def logout():
     session.pop('user', None)
     return redirect('/login')
-=======
-                    
-# Route for the user dashboard
-@app.route('/dashboard/', methods=['GET', 'POST'])
-@app.route('/dashboard/<data>', methods=['GET', 'POST'])
-def dashboard(data=None):
-    # Check if the user is logged in
-    #if 'user_id' not in session:
-       # return redirect('/login')
-
-    # Get the user ID from the session
-    #user_id = session['user_id']
-
-    # Retrieve user-specific information from the database
-    
-    user_adm = 'jane.wambu@example.com'
-    query = "SELECT * FROM students WHERE adm='{}'".format(user_adm)
-   
-    mycursor.execute(query)
-    data = mycursor.fetchall()
-    print(data)
-
-    
-    
-    for y in data:
-        print("Hello niggah{}".format(y))
-        #loop in the tuple and set the formats.
-        (id, username, first_name,last_name,adm,parent,parent_id,parent_phone,paid,last_point,password,current_school,location,progress,classe,*others) = y
-        #Get the email in the tuple
-        adm = adm
-        classe = classe
-        print("Code runner : {}".format(adm))
-        print("Code runner : {}".format(classe))
-        form = ''
-        if classe == "1":
-            form = "Form 1"
-        elif classe == "2":
-            form = "Form 2"
-        elif classe == "3":
-            form = "Form 3"
-        elif classe == "4":
-            form = "Form 4"
-        else:
-            form = "Form 1"
-
-    with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
-        topics = json.load(json_file)
-        # Loop over the data
-        for key, value in topics.items():
-            print("{}: {}".format(key, value))
-            if key == 'Form 1':#testing the loop
-                print("This are the topics: {}".format(value))
-                Tnames = value
-
-    
-    return render_template('app.dashboard.html', data=data, topics=topics, form=form)
-    print("this is the data".format(data))
-       
-            
-#Route for the user lessons section
-@app.route('/lessons/', methods=['GET', 'POST'])
-@app.route('/lessons/<topics>', methods=['GET', 'POST'])
-def lessons(topics=None):
-    #get details of the user by executing the SQL query
-    user_adm = 'jane.wambu@example.com'
-    query = "SELECT * FROM students WHERE adm='{}'".format(user_adm)
-   
-    mycursor.execute(query)
-    data = mycursor.fetchall()
-    print(data)
-    
-    #loop through students query from database
-    for y in data:
-        print("Hello niggah{}".format(y))
-        #loop in the tuple and set the formats.
-        (id, username, first_name,last_name,adm,parent,parent_id,parent_phone,paid,last_point,password,current_school,location,progress,classe,*others) = y
-        #Get the email in the tuple
-        adm = adm
-        classe = classe
-        print("Code runner : {}".format(adm))
-        print("Code runner : {}".format(classe))
-        form = ''
-        if classe == "1":
-            form = "Form 1"
-        elif classe == "2":
-            form = "Form 2"
-        elif classe == "3":
-            form = "Form 3"
-        elif classe == "4":
-            form = "Form 4"
-        else:
-            form = "Form 1"
-
-    with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
-        topics = json.load(json_file)
-        # Loop over the data
-        for key, value in topics.items():
-            #print("{}: {}".format(key, value))
-            if key == 'Form 1':#testing the loop
-               # print("This are the topics: {}".format(value))
-                Tnames = value
-
-    #progress
->>>>>>> 554f7700f3fbd1d9b6cf37f95942ee53bad2c5e8
 
 
 
 
 
-<<<<<<< HEAD
+
 
 
 # Route for the user dashboard
@@ -311,7 +200,7 @@ def dashboard(data=None):
        #return render_template('dashboard.html', user=user, lessons=lessons, topics=topics)
 
     
-=======
+
     #Render the template
     return render_template('app.lessons.html', topics=topics, form=form)
     print("this is the data".format(topics))
@@ -322,33 +211,7 @@ def dashboard(data=None):
             
 
 
-        
-#print("Graetasndbsnsldmnfkjbnkwlmkd{}".format(data))
-# Query the subtopics for Form 4
-#form4_subtopics = data['Form 4']
-
-# Access individual subtopics
-#trigonometry_subtopics = form4_subtopics['Trigonometry']
-#calculus_subtopics = form4_subtopics['Calculus']
-
-# Print the subtopics
-#print("Trigonometry subtopics:")
-#for subtopic in trigonometry_subtopics:
-   # print(subtopic)
-
-#print("\nCalculus subtopics:")
-#for subtopic in calculus_subtopics:
-    #print(subtopic)
-
-
->>>>>>> 554f7700f3fbd1d9b6cf37f95942ee53bad2c5e8
     
-    
-       
-
-
-
-
 @app.route("/tutorbot", methods=["POST"])
 def response():
     data = dict(request.json)
@@ -387,7 +250,7 @@ def lesson_detail(lesson_id):
     cursor.execute(query, (lesson_id,))
     lesson = cursor.fetchone()
 
-    return render_template('lesson_detail.html', lesson=lesson)
+    return render_template('lessons.html', lesson=lesson)
 
 @app.route('/lessons/<lesson_id>/complete', methods=['POST'])
 def complete_lesson(lesson_id):
