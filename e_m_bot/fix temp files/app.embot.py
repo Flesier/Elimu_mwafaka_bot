@@ -49,7 +49,8 @@ def create_connection():
 #openai.api_key = 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
 
 # Read JSON data
-
+with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
+    topics = json.load(json_file)
 
 # Define routes and add functionality
 @app.route('/')
@@ -69,12 +70,9 @@ def authenticate_user(username, password):
     for row in result:
         print("Username:", row[0])
         print("Password:", row[1])
-    name = row[0]
-    passw = row[1]
     # Replace this with your own logic to check if the user is authenticated
     # and the password matches the one stored in the database
-   
-    if username == name and password == passw:
+    if username == row[0] and password == row[1]:
         return True
     else:
         return False
@@ -95,6 +93,27 @@ def login():
     
     return render_template('login.html')
 
+#@app.route('/login', methods=['GET', 'POST'])
+#def login():
+   # if request.method == 'POST':
+        #print("Hello world")
+      #  username = request.form['username']
+        #password = request.form['password']
+
+       # cursor = tutordb.cursor()
+       # query = "SELECT * FROM students WHERE username = %s"
+       # cursor.execute(query, (username,))
+      #  user = cursor.fetchone()
+
+       # if user and check_password_hash(user[2], password):
+           # session['user'] = username
+          ##  return redirect('/dashboard')
+        #else:
+         #   flash('Invalid credentials', 'error')
+          #  return render_template('login.html', error='Invalid username or password')
+       
+   # return render_template('login.html')
+    
 
 @app.route('/logout')
 def logout():
@@ -112,6 +131,13 @@ def logout():
 @app.route('/dashboard/<data>', methods=['GET', 'POST'])
 def dashboard(data=None):
     # Check if the user is logged in
+    #if 'user_id' not in session:
+       # return redirect('/login')
+
+    # Get the user ID from the session
+    #user_id = session['user_id']
+
+    # Check if the user is logged in by verifying the session
     if 'username' in session:
         username = session['username']
 
@@ -144,12 +170,8 @@ def dashboard(data=None):
                 form = "Form 4"
             else:
                 form = "Form 1"
-
-        with open(r'C:\xampp\htdocs\Elimu_mwafaka_bot\e_m_bot\maths.json', 'r') as json_file:
-            topics = json.load(json_file)
-            print(topics)
         #return render_template('dashboard.html', username=username, lessons=lessons, topics=topics)
-        return render_template('dashboard.html', username=username, topics=topics, data=data,form=form)
+        return render_template('dashboard.html', username=username, topics=topics, data=data)
         #return f'Welcome to the dashboard, {username}!'
     else:
         error="No session Set."
