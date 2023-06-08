@@ -118,11 +118,8 @@
           <div class="contact__title">
             <h1>Want extra study?Sign up</h1>
           </div>
-          <form class="contact__form">
-            <input type="text" placeholder="Please enter your email..." />
-            <button><a href="signup.html">signup</a></button>
-          </form>
-        </div>
+             <button><a href="signup.html">signup</a></button>
+          </div>
       </div>
     </section>
     <!-- Footer -->
